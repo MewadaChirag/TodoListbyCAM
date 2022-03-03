@@ -1,0 +1,10 @@
+<div class="container-fluid" >
+    <h1 class="text-center mb-3">Todo list by CAM</h1>
+<app-addtodo (todoAdd)="addTodo($event)"></app-addtodo>
+<div *ngIf="this.todos.length===0; else elseblock">No Todos to display</div>
+<ng-template #elseblock>
+    <div *ngFor="let todo of todos; index as i">
+        <app-todoitem [todo]="todo" [i]="i" (todoDelete)="deleteTodo($event)" (todoCheckbox)="toggleTodo($event)"></app-todoitem>
+    </div> 
+</ng-template>
+</div>
